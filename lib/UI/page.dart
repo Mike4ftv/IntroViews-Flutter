@@ -45,21 +45,23 @@ class Page extends StatelessWidget {
       mainAxisAlignment: columnMainAxisAlignment,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        SafeArea(
+        Container(
           child: new _TitlePageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
         ), //Transform
-        Expanded(
-          flex: 4,
+        Spacer(flex: 1,),
+        Container(
+
           child: new _ImagePageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
-        ), //Transform
-        Flexible(
-          flex: 2,
+        ),
+        Spacer(flex: 1,),//Transform
+        Expanded(
+
           child: new _BodyPageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
@@ -88,7 +90,7 @@ class Page extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Expanded(
-                flex: 2,
+                flex: 8,
                 child: SafeArea(
                   child: new _TitlePageTransform(
                     percentVisible: percentVisible,
@@ -131,7 +133,8 @@ class _BodyPageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: const EdgeInsets.only(
-          bottom: 75.0,
+          top: 0,
+          bottom: 20.0,
           left: 10.0,
           right: 10.0,
         ),
@@ -165,8 +168,8 @@ class _ImagePageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 50.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: new EdgeInsets.only(
-          top: 20.0,
-          bottom: 40.0,
+          top: 0.0,
+          bottom: 0.0,
         ),
         child: new Container(
           child: pageViewModel.mainImage, //Loading main
@@ -196,8 +199,8 @@ class _TitlePageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: new EdgeInsets.only(
-          top: 5.0,
-          bottom: 5.0,
+          top: 80.0,
+          bottom: 0.0,
           left: 10.0,
           right: 10.0,
         ),

@@ -16,7 +16,7 @@ class Page extends StatelessWidget {
   Page({
     this.pageViewModel,
     this.percentVisible = 1.0,
-    this.columnMainAxisAlignment = MainAxisAlignment.spaceAround,
+    this.columnMainAxisAlignment = MainAxisAlignment.start,
   });
 
   @override
@@ -42,7 +42,7 @@ class Page extends StatelessWidget {
   Widget _buildPortraitPage() {
     return new Column(
       key: Key("Portrait Page"),
-      mainAxisAlignment: columnMainAxisAlignment,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Container(
@@ -131,6 +131,7 @@ class _BodyPageTransform extends StatelessWidget {
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: Container(
+        color: Colors.pink,
         width: MediaQuery.of(context).size.width * 0.9 ,
         //height:MediaQuery.of(context).size.height * 0.5,
 
@@ -165,6 +166,7 @@ class _ImagePageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 50.0 * (1 - percentVisible), 0.0),
       child:
         new Container(
+          color: Colors.red,
             width: MediaQuery.of(context).size.width * 0.9 ,
             height:MediaQuery.of(context).size.height * 0.3,
 
@@ -195,6 +197,7 @@ class _TitlePageTransform extends StatelessWidget {
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: Container(
+        color: Colors.yellow,
           width: MediaQuery.of(context).size.width * 0.9 ,
           height:MediaQuery.of(context).size.height * 0.2,
 

@@ -51,7 +51,6 @@ class Page extends StatelessWidget {
             pageViewModel: pageViewModel,
           ),
         ), //Transform
-        Spacer(flex: 1,),
         Container(
 
           child: new _ImagePageTransform(
@@ -59,8 +58,8 @@ class Page extends StatelessWidget {
             pageViewModel: pageViewModel,
           ),
         ),
-        Spacer(flex: 1,),//Transform
-        Expanded(
+
+        Container(
 
           child: new _BodyPageTransform(
             percentVisible: percentVisible,
@@ -131,19 +130,17 @@ class _BodyPageTransform extends StatelessWidget {
       //Used for vertical transformation
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
-      child: new Padding(
-        padding: const EdgeInsets.only(
-          top: 0,
-          bottom: 20.0,
-          left: 10.0,
-          right: 10.0,
-        ),
-        child: DefaultTextStyle.merge(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.9 ,
+        //height:MediaQuery.of(context).size.height * 0.5,
+
+        child: Center(
+          child: DefaultTextStyle.merge(
           style: pageViewModel.mergedBodyTextStyle,
           textAlign: TextAlign.center,
           child: pageViewModel.body,
         ),
-      ), //Padding
+      )), //Padding
     );
   }
 }
@@ -166,15 +163,15 @@ class _ImagePageTransform extends StatelessWidget {
       //Used for vertical transformation
       transform:
           new Matrix4.translationValues(0.0, 50.0 * (1 - percentVisible), 0.0),
-      child: new Padding(
-        padding: new EdgeInsets.only(
-          top: 0.0,
-          bottom: 0.0,
-        ),
-        child: new Container(
-          child: pageViewModel.mainImage, //Loading main
-        ), //Container
-      ), //Padding
+      child:
+        new Container(
+            width: MediaQuery.of(context).size.width * 0.9 ,
+            height:MediaQuery.of(context).size.height * 0.3,
+
+            child: Center(
+            child: pageViewModel.mainImage, //Loading main
+        )), //Container
+       //Padding
     );
   }
 }
@@ -197,18 +194,16 @@ class _TitlePageTransform extends StatelessWidget {
       //Used for vertical transformation
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
-      child: new Padding(
-        padding: new EdgeInsets.only(
-          top: 80.0,
-          bottom: 0.0,
-          left: 10.0,
-          right: 10.0,
-        ),
-        child: DefaultTextStyle.merge(
+      child: Container(
+          width: MediaQuery.of(context).size.width * 0.9 ,
+          height:MediaQuery.of(context).size.height * 0.2,
+
+        child: Center(
+    child: DefaultTextStyle.merge(
           style: pageViewModel.mergedTitleTextStyle,
           child: pageViewModel.title,
         ),
-      ), //Padding
+      )), //Padding
     );
   }
 }

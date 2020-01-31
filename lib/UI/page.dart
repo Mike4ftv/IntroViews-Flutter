@@ -139,7 +139,7 @@ class _BodyPageTransform extends StatelessWidget {
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: Container(
-        color: Colors.pink,
+        color: Colors.transparent,
         width: MediaQuery.of(context).size.width * 0.9 ,
 
 
@@ -174,7 +174,7 @@ class _ImagePageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 50.0 * (1 - percentVisible), 0.0),
       child:
         new Container(
-          color: Colors.red,
+          color: Colors.transparent,
             width: MediaQuery.of(context).size.width * 0.9 ,
             height:MediaQuery.of(context).size.height * 0.3,
 
@@ -205,7 +205,7 @@ class _TitlePageTransform extends StatelessWidget {
       transform:
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: Container(
-        color: Colors.yellow,
+        color: Colors.transparent,
           width: MediaQuery.of(context).size.width * 0.9 ,
          //height:MediaQuery.of(context).size.height * 0.1,
 

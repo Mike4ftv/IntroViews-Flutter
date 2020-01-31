@@ -39,7 +39,8 @@ class DefaultButton extends StatelessWidget {
       child: Opacity(
         opacity: opacity,
         child: DefaultTextStyle.merge(
-          style: style,
+          style: TextStyle(color: Colors.red),
+          //style,
           child: child,
         ), //Text
       ), //Opacity
@@ -75,15 +76,22 @@ class DoneButton extends StatelessWidget {
       opacity = 1.0 - pageButtonViewModel.slidePercent;
     }
 
-    return FlatButton(
+    return RaisedButton(
       onPressed: onTap,
       child: Opacity(
         opacity: opacity,
         child: DefaultTextStyle.merge(
-          style: style,
+          style: TextStyle(color: Colors.black),
           child: child, //Text
         ),
-      ), //Opacity
+      ),
+      color: Colors.deepOrange,
+      textColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(18.0),
+      ),
+      padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+     //Opacity
     ); //FlatButton
   }
 }
@@ -181,6 +189,37 @@ class PageIndicatorButtons extends StatelessWidget {
     }
   }
 
+
+  Widget _getCreateAccountButton() {
+    if (activePageIndex == 2) {
+
+      return RaisedButton(
+
+        child: Text("Créer un compte",
+        style: TextStyle(fontSize: 14
+
+        ),),
+        onPressed: () {
+          onPressedDoneButton;
+        },
+        color: Colors.blue,
+        textColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(18.0),
+        ),
+        padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+      );
+    } else {
+
+      return Container();
+    }
+  }
+
+
+
+
+
+
   //Constructor
   PageIndicatorButtons(
       {@required this.activePageIndex,
@@ -210,20 +249,41 @@ class PageIndicatorButtons extends StatelessWidget {
       child: DefaultTextStyle(
         style: textStyle,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
+            Column(
+
+              children: <Widget>[
+                Align(
+            alignment: Alignment.center,
+            child: Padding(
+
                 padding: const EdgeInsets.only(bottom: 10.0),
-                child: _getSkipORBackButton() //Row
-                ), //Padding
-            Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: _getDoneORNextButton() //Row
-                )
+                child: _getCreateAccountButton()),
+
+                ),
+
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: _getSkipORBackButton() //Row
+                    ), //Padding
+                    Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: _getDoneORNextButton() //Row
+                    )
+                  ],
+                ),
+
+              ],
+            )
           ],
-        ),
+        )
       ),
     );
   }

@@ -260,7 +260,16 @@ class _IntroViewsFlutterState extends State<IntroViewsFlutter>
               slideDirection,
               slidePercent,
             ),
-          ), //PagerIndicator
+          ),
+
+
+
+
+
+
+
+
+          //PagerIndicator
 
           PageIndicatorButtons(
             //Skip and Done Buttons

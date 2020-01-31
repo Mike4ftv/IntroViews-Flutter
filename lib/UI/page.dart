@@ -72,7 +72,9 @@ class Page extends StatelessWidget {
             pageViewModel: pageViewModel,
           ),
         ),
-        Spacer(flex: 4),
+        Spacer(flex:4),
+
+
         //Transform
       ],
     );

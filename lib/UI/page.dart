@@ -22,8 +22,9 @@ class Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(8, 50, 8, 100),
       width: double.infinity,
+      
       color: pageViewModel.pageColor,
       child: new Opacity(
         //Opacity is used to create fade in effect
@@ -41,16 +42,20 @@ class Page extends StatelessWidget {
   /// when device is Portrait place title, image and body in a column
   Widget _buildPortraitPage() {
     return new Column(
+
       key: Key("Portrait Page"),
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
+        Spacer(flex: 1),
         Container(
+
           child: new _TitlePageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
-        ), //Transform
+        ),
+        Spacer(flex: 1),//Transform
         Container(
 
           child: new _ImagePageTransform(
@@ -58,6 +63,7 @@ class Page extends StatelessWidget {
             pageViewModel: pageViewModel,
           ),
         ),
+        Spacer(flex: 1),
 
         Container(
 
@@ -65,7 +71,9 @@ class Page extends StatelessWidget {
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
-        ), //Transform
+        ),
+        Spacer(flex: 4),
+        //Transform
       ],
     );
   }
@@ -133,7 +141,7 @@ class _BodyPageTransform extends StatelessWidget {
       child: Container(
         color: Colors.pink,
         width: MediaQuery.of(context).size.width * 0.9 ,
-        //height:MediaQuery.of(context).size.height * 0.5,
+
 
         child: Center(
           child: DefaultTextStyle.merge(
@@ -199,7 +207,7 @@ class _TitlePageTransform extends StatelessWidget {
       child: Container(
         color: Colors.yellow,
           width: MediaQuery.of(context).size.width * 0.9 ,
-          height:MediaQuery.of(context).size.height * 0.2,
+         //height:MediaQuery.of(context).size.height * 0.1,
 
         child: Center(
     child: DefaultTextStyle.merge(

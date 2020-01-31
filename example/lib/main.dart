@@ -15,7 +15,7 @@ class App extends StatelessWidget {
         // iconImageAssetPath: 'assets/air-hostess.png',
         bubble: Image.asset('assets/air-hostess.png'),
         body: Text(
-          'Haselfree  booking  of  flight  tickets  with  full  refund  on  cancelation',
+          'Haselfree  booking  of  flight  tHaselfree  booking  of  flight  tlight  tickets  with  full  refund  on  cancelation',
         ),
         title: Text(
           'Flights',

@@ -49,6 +49,54 @@ class DefaultButton extends StatelessWidget {
 }
 
 /// Done Button class
+///
+///
+///
+///
+///
+///
+
+
+class MyButton extends StatelessWidget {
+
+  final VoidCallback press;
+
+
+
+
+  MyButton({this.press});
+
+  @override
+  Widget build(BuildContext context) {
+   // double opacity = 1.0;
+    return RaisedButton(
+          onPressed: press,
+
+      child: Container (
+        color: Colors.yellow,
+        child: Text("hello"),
+
+
+
+        ));
+
+
+
+
+
+
+
+  }
+
+
+
+
+}
+
+
+
+
+
 
 class DoneButton extends StatelessWidget {
   //Callback
@@ -81,14 +129,15 @@ class DoneButton extends StatelessWidget {
       child: Opacity(
         opacity: opacity,
         child: DefaultTextStyle.merge(
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
           child: child, //Text
         ),
       ),
-      color: Colors.deepOrange,
+      color: Colors.blue,
       textColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: new BorderRadius.circular(18.0),
+
       ),
       padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
      //Opacity
@@ -103,7 +152,14 @@ class PageIndicatorButtons extends StatelessWidget {
   final VoidCallback onPressedDoneButton; //Callback for Done Button
   final VoidCallback onPressedNextButton;
   final VoidCallback onPressedBackButton;
-  final VoidCallback onPressedSkipButton; //Callback for Skip Button
+  final VoidCallback onPressedSkipButton;
+
+
+  final VoidCallback maFonction;
+
+
+
+  //Callback for Skip Button
   final SlideDirection slideDirection;
   final double slidePercent;
   final bool showSkipButton;
@@ -190,24 +246,18 @@ class PageIndicatorButtons extends StatelessWidget {
   }
 
 
+
+
   Widget _getCreateAccountButton() {
     if (activePageIndex == 2) {
 
-      return RaisedButton(
+      return MyButton(
 
-        child: Text("Créer un compte",
-        style: TextStyle(fontSize: 14
+        press: maFonction ,
 
-        ),),
-        onPressed: () {
-          onPressedDoneButton;
-        },
-        color: Colors.blue,
-        textColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(18.0),
-        ),
-        padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+
+
+
       );
     } else {
 
@@ -225,6 +275,7 @@ class PageIndicatorButtons extends StatelessWidget {
       {@required this.activePageIndex,
       @required this.totalPages,
       this.onPressedDoneButton,
+        this.maFonction,
       this.slideDirection,
       this.slidePercent,
       this.onPressedSkipButton,
@@ -242,52 +293,14 @@ class PageIndicatorButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 0.0,
-      right: 0.0,
-      bottom: 0.0,
-      child: DefaultTextStyle(
-        style: textStyle,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Column(
+    return Padding(
 
-              children: <Widget>[
-                Align(
-            alignment: Alignment.center,
-            child: Padding(
-
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: _getCreateAccountButton()),
-
-                ),
-
-
-
-
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
-                        child: _getSkipORBackButton() //Row
-                    ), //Padding
-                    Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
-                        child: _getDoneORNextButton() //Row
-                    )
-                  ],
-                ),
-
-              ],
-            )
-          ],
-        )
+      padding: EdgeInsets.only(bottom: 70.0),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: _getDoneORNextButton(),
       ),
     );
+      
   }
 }

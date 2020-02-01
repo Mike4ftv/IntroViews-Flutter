@@ -76,6 +76,7 @@ class App extends StatelessWidget {
           showNextButton: true,
           showBackButton: true,
           onTapDoneButton: () {
+            print("on tap button");
             Navigator.push(
               context,
               MaterialPageRoute(

@@ -109,7 +109,9 @@ class IntroViewsFlutter extends StatefulWidget {
     this.onTapSkipButton,
     this.onTapNextButton,
     this.pageButtonsColor,
-    this.doneText = const Text("DONE"),
+    this.doneText = const Text("Créer un compte"
+        ""
+        ""),
     this.nextText = const Text("NEXT"),
     this.skipText = const Text("SKIP"),
     this.backText = const Text("BACK"),

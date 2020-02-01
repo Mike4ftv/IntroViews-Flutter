@@ -57,41 +57,7 @@ class DefaultButton extends StatelessWidget {
 ///
 
 
-class MyButton extends StatelessWidget {
 
-  final VoidCallback press;
-
-
-
-
-  MyButton({this.press});
-
-  @override
-  Widget build(BuildContext context) {
-   // double opacity = 1.0;
-    return RaisedButton(
-          onPressed: press,
-
-      child: Container (
-        color: Colors.yellow,
-        child: Text("hello"),
-
-
-
-        ));
-
-
-
-
-
-
-
-  }
-
-
-
-
-}
 
 
 
@@ -175,25 +141,7 @@ class PageIndicatorButtons extends StatelessWidget {
   final bool doneButtonPersist;
 
   Widget _getDoneORNextButton() {
-    if ((activePageIndex < totalPages - 1 ||
-            (activePageIndex == totalPages - 1 &&
-                slideDirection == SlideDirection.leftToRight)) &&
-        showNextButton) {
-      return DefaultButton(
-        child: nextText,
-        onTap: onPressedNextButton,
-        pageButtonViewModel: PageButtonViewModel(
-          //View Model
-          activePageIndex: activePageIndex,
-          totalPages: totalPages,
-          slidePercent: slidePercent,
-          slideDirection: slideDirection,
-        ),
-      );
-    } else if (activePageIndex == totalPages - 1 ||
-        (activePageIndex == totalPages - 2 &&
-                slideDirection == SlideDirection.rightToLeft ||
-            doneButtonPersist)) {
+    if (activePageIndex == 2) {
       return DoneButton(
         child: doneText,
         onTap: onPressedDoneButton,
@@ -248,22 +196,7 @@ class PageIndicatorButtons extends StatelessWidget {
 
 
 
-  Widget _getCreateAccountButton() {
-    if (activePageIndex == 2) {
 
-      return MyButton(
-
-        press: maFonction ,
-
-
-
-
-      );
-    } else {
-
-      return Container();
-    }
-  }
 
 
 

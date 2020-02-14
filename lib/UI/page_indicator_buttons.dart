@@ -90,7 +90,11 @@ class DoneButton extends StatelessWidget {
       opacity = 1.0 - pageButtonViewModel.slidePercent;
     }
 
-    return RaisedButton(
+    return ButtonTheme(
+
+      minWidth: 200,
+        child:RaisedButton(
+
       onPressed: onTap,
       child: Opacity(
         opacity: opacity,
@@ -107,6 +111,7 @@ class DoneButton extends StatelessWidget {
       ),
       padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
      //Opacity
+    )
     ); //FlatButton
   }
 }
